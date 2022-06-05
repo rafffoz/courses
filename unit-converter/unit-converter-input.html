@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Unit converter</title>
+        
+        <link rel="stylesheet" href="unit-converter.css" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <section>
+            <header>
+                <h1>Metric/Imperial unit conversion</h1>
+                <input id="unit-el" type="number" value="0">
+            </header>
+            <main>
+                <ul>
+                    <li>
+                        <h2>Length (Meter/Feet)</h2>
+                        <p><span id="meters-initial">0</span> meters = <span id="feets-final">0.000</span> feets | <span id="feets-initial">0</span> feets - <span id="meters-final">0.000</span> meters</p>
+                    </li>
+                    <li>
+                        <h2>Volume (Liters/Gallons)</h2>
+                        <p><span id="litters-initial">0</span> litters = <span id="gallons-final">0.000</span> gallons | <span id="gallons-initial">0</span> gallons - <span id="litters-final">0.000</span> litters</p>
+                    </li>
+                    <li>
+                        <h2>Mass (Kilograms/Pounds)</h2>
+                        <p><span id="kilos-initial">0</span> kilos = <span id="pounds-final">0.000</span> pounds | <span id="pounds-initial">0</span> pounds - <span id="kilos-final">0.000</span> kilos</p>
+                    </li>
+                </ul>
+            </main>
+        </section>
+    <script src="unit-converter-input.js"></script>
+    </body>
+</html>
