@@ -14,11 +14,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 550px;
-    margin-inline: auto;
     color: var(--clr-100);
     background-color: var(--clr-900);
     font-family: 'Inter', sans-serif;
+    padding-inline: 3em;
+}
+
+section {
+    max-width: 550px;
+    margin-inline: auto;
 }
 
 h1 {

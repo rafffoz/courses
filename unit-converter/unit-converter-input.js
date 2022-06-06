@@ -15,41 +15,26 @@ let littersFinal = document.getElementById("litters-final")
 let kilosFinal = document.getElementById("kilos-final")
 let poundsFinal = document.getElementById("pounds-final")
 
-// stores the unit number base for all convertions
+unitEl.addEventListener("input", convertionsResult)
 
-unitEl.addEventListener("input", metersToFeets)
-unitEl.addEventListener("input", feetsToMeters)
-unitEl.addEventListener("input", littersToGallons)
-unitEl.addEventListener("input", gallonsToLitters)
-unitEl.addEventListener("input", kilosToPounds)
-unitEl.addEventListener("input", poundsToKilos)
+function convertionsResult() {
+    let unitNum = Number(unitEl.value)
+    
+    metersInitial.textContent = unitNum
+    feetsFinal.textContent = (unitNum * 3.28084).toFixed(3)
 
-function metersToFeets() {
-    metersInitial.textContent = Number(unitEl.value)
-    feetsFinal.textContent = Number(unitEl.value) * 3.28084
-}
+    feetsInitial.textContent = unitNum
+    metersFinal.textContent = (unitNum * 0.3048).toFixed(3)
 
-function feetsToMeters() {
-    feetsInitial.textContent = Number(unitEl.value)
-    metersFinal.textContent = Number(unitEl.value) * 0.3048
-}
+    littersInitial.textContent = unitNum
+    gallonsFinal.textContent = (unitNum * 0.2641722).toFixed(3)
 
-function littersToGallons() {
-    littersInitial.textContent = Number(unitEl.value)
-    gallonsFinal.textContent = Number(unitEl.value) * 0.2641722
-}
+    gallonsInitial.textContent = unitNum
+    littersFinal.textContent = (unitNum * 3.785411784).toFixed(3)
 
-function gallonsToLitters() {
-    gallonsInitial.textContent = Number(unitEl.value)
-    littersFinal.textContent = Number(unitEl.value) * 3.785411784
-}
+    kilosInitial.textContent = unitNum
+    poundsFinal.textContent = (unitNum * 2.20462).toFixed(3)
 
-function kilosToPounds() {
-    kilosInitial.textContent = Number(unitEl.value)
-    poundsFinal.textContent = Number(unitEl.value) * 2.20462
-}
-
-function poundsToKilos() {
-    poundsInitial.textContent = Number(unitEl.value)
-    kilosFinal.textContent = Number(unitEl.value) * 0.453592
+    poundsInitial.textContent = unitNum
+    kilosFinal.textContent = (unitNum * 0.453592).toFixed(3)
 }
