@@ -1,0 +1,116 @@
+/* 
+////// For this challenge ///////
+
+- All text is in the text.md file
+
+// Requirements
+   1. Get all the navigation items next to one another
+   2. Add a space between all the items
+*/
+
+:root {
+    --clr-main: #F3EED9;
+    --clr-second: #824936;
+    --clr-third: #222C2A;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-block: 0;
+}
+
+.section-title {
+    color: #87629A;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase; 
+    color: #23424A;
+    font-weight: 900;
+    background-color: #38CFD9;
+    padding: .75em 2em;
+    border-radius: 100px;
+}
+
+.btn:hover,
+.btn:focus {
+    opacity: .75; 
+}
+
+.container {
+    max-width: 1128px;
+    margin: 0 auto;
+}
+
+.row {
+    padding-block: 6rem;
+    gap: 3rem
+}
+
+.col {
+    width: 100%;
+}
+
+header {
+    padding: .5em 0;
+}
+
+.hero {
+    background-color: var(--clr-main);
+    color: var(--clr-second);
+    height: 100vh;
+    display: grid;
+    align-content: center;
+}
+
+.hero p {
+    margin-top: 0;
+}
+
+.hero__text { 
+    margin: 0 auto;
+    text-align: center;
+    max-width: 600px;
+}
+
+.quality h2 {
+    text-align: center;
+    color: var(--clr-second);
+}
+
+.quality__text{
+    display: flex;
+    gap: 3rem;
+}
+
+.custom {
+    display: flex;
+    background-color: var(--clr-third);
+    box-shadow: 0 0 0 100vmax var(--clr-third);
+    clip-path: inset(0 -100vmax);
+    color: var(--clr-main);
+}
+
+.care {
+    display: flex;
+    background-color: var(--clr-second);
+    box-shadow: 0 0 0 100vmax var(--clr-second);
+    clip-path: inset(0 -100vmax);
+    color: var(--clr-main);  
+}
