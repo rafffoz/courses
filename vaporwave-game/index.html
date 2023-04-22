@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+        <title>Vapoware</title>
+        <link rel="stylesheet" href="styles.css" type="text/css">
+        <link rel="stylesheet" href="resources/css/reset.css" type="text/css">
+        <link rel="stylesheet" href="resources/css/vapoware-styles.css" type="text/css">
+        <link rel="stylesheet" href="resources/font-awesome/css/font-awesome.css"> 
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="vw__header vw__section__height">
+            <h1>Welcome to</h1>
+            <div class="waviy">
+                <span style="--i:1">n</span>
+                <span style="--i:2">o</span>
+                <span style="--i:3">s</span>
+                <span style="--i:4">t</span>
+                <span style="--i:5">a</span>
+                <span style="--i:6">l</span>
+                <span style="--i:7">g</span>
+                <span style="--i:8">i</span>
+                <span style="--i:9">a</span>
+                <span style="--i:10">!</span>
+               </div>
+        </header>
+        <main>
+            <section class="vw__section__height vw__areyouonline">
+                <h2 class="vw__title__existencedoubt">Are you online?</h2>
+            </section>
+
+            <section class="vw__section__height vw__areyousure" style="text-align: right;">
+                <h2 class="vw__title__existencedoubt">Are you sure?</h2>
+            </section>
+
+            <section class="vw__section__height vw__letsplay" style="text-align: center;">
+                    <h2 class="vw__title__existencedoubt" style="font-size:2em">let's play!</h2>
+                    <div>
+                        <p style="font-size:2em">Escolha um lado</p>
+                        <button onclick="unhide()" class="vw__button">--Esse lado</button>
+                        <button onclick="unhide()" class="vw__button">Esse lado--</button>
+                            <div class="exp">
+                                <p class="and">não importa</p>
+                            </div>
+                    </div>
+            </section>
+
+            <!--
+<iframe src="https://giphy.com/embed/3osxYhj4VNwxHdlE9G" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/vaporwave-seapunk-artefact-3osxYhj4VNwxHdlE9G">via GIPHY</a></p>
+
+<iframe src="https://giphy.com/embed/CW16nFVXLSQxSMUEMd" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/CW16nFVXLSQxSMUEMd">via GIPHY</a></p>
+
+            -->
+
+            <section class="vw__section__height vw__letsplay_space">
+
+            </section>
+
+            <section class="vw__section__height vw__letsplay_2" style="text-align: center;">
+                <h2 class="vw__title__existencedoubt" style="font-size:2em">let's play!</h2>
+                <div>
+                    <p style="font-size:2em">Escolha um lado</p>
+                    <button onclick="unhide2()" class="vw__button">--Esse lado</button>
+                    <button onclick="unhide2()" class="vw__button">Esse lado--</button>
+                        <div class="exp2">
+                            <p class="and">não importa</p>
+                        </div>
+                </div>
+        </section>
+        </main>
+        <footer></footer>
+<script>
+    function unhide() {
+    var hid = document.getElementsByClassName("exp");
+    // Emulates jQuery $(element).is(':hidden');
+    if(hid[0].offsetWidth > 0 && hid[0].offsetHeight > 0) {
+        hid[0].style.visibility = "visible";
+    };
+}
+
+    function unhide2() {
+    var hid = document.getElementsByClassName("exp2");
+    // Emulates jQuery $(element).is(':hidden');
+    if(hid[0].offsetWidth > 0 && hid[0].offsetHeight > 0) {
+        hid[0].style.visibility = "visible";
+    }
+}
+</script>
+    </body>
+</html>
