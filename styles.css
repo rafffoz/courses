@@ -26,9 +26,10 @@
 body, html {
     margin: 0;
     padding: 10px;
-    background: var(--background);
+    background: #222222;
     color: var(--text);
     font-family: var(--font);
+    font-size: 1.2rem;
 }
 
 img {
@@ -76,3 +77,7 @@ button {
 }
 
 button:hover {background: red;}
+
+ul li {
+    margin-bottom: .2rem;
+}
