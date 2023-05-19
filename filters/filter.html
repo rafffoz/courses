@@ -6,63 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filters</title>
 <style>
-.button-area .button {
-  display: inline-block;
-  padding: 10px;
-  margin: 30px 5px;
-  background-color: rgba(255, 255, 255, 0);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid #f16022;
-}
-.button-area .button:hover {
-  background-color: #f16022;
-}
-.button-area .button.active {
-  background-color: #f16022;
-}
-.button-area input[type=checkbox] {
-  display: none;
-}
-#mnsry_container {
-  position: relative;
-}
-#mnsry_container:hover img {
-  opacity: 0.28;
-}
-#mnsry_container .item {
-  width: 33.3%;
-  min-height: 200px;
-  overflow: hidden;
-  cursor: pointer;
-  opacity: 0;
-}
-
-#mnsry_container .item img {
-  display: block;
-  width: 100%;
-  opacity: 0.25;
-  transition: all 0.8s;
-}
-
-#mnsry_container .item:hover img {
-  opacity: 1;
-  transform: scale(1.04);
-}
-
-@media (max-width: 860px) {
-  #mnsry_container .item {
-    width: 50%;
-    min-height: 150px;
-  }
-}
-@media (max-width: 667px) {
-  #mnsry_container .item {
-    width: 100%;
-    min-height: 220px;
-  }
-}
-
 :root {
 --lp-clr-primaria: #000732;
 --lp-clr-secundaria: #0d68cc;
@@ -195,7 +138,131 @@ h1 strong {display: block;}
 .asyncGallery__Next,.asyncGallery__Prev {display: none;}
 }
 
+button {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: none;
+}
+
+.wrap {
+    max-width: 784px;
+    margin: 50px auto 0;
+    padding: 40px 20px;
+}
+
+.filter-control {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.filter-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.filter-btn {
+    background: #FFFFFF;
+    box-shadow: 0 0 8px rgba(67, 110, 141, 0.37);
+    border-radius: 6px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 500;
+    color: #3DA9FC;
+    padding: 15px 26px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 0 8px;
+    border: 1px solid rgba(255,255,255,0);
+}
+.filter-btn:hover {
+    box-shadow: none;
+}
+.filter-btn.active {
+    background: #3DA9FC;
+    box-shadow: none;
+    color: #FFFFFF;
+}
+.filter-content {
+    background: #FFFFFF;
+    border-radius: 4px;
+    margin-top: 30px;
+    padding: 30px 20px;
+}
+.grid {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.grid-item {
+    width: 64px;
+    height: 64px;
+    margin: 0 8px;
+    border-radius: 6px;
+}
+.filter1 {
+    background: #EF4565;
+}
+.filter2 {
+    background: #90B4CE;
+}
+.filter3 {
+    background: #87D7A7;
+}
+.filter4 {
+    background: #FFE299;
+}
+.clear-all {
+    font-size: 20px;
+    line-height: 24px;
+    color: #3DA9FC;
+    background: rgba(255,255,255,0);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.clear-all:hover {
+    color: #094067;
+}
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <h1>filters</h1>
@@ -221,149 +288,133 @@ h1 strong {display: block;}
 <div class="fsi-lp__conteudo">
    <div class="fsi__container__p" id="content">
 
-<!-- Filtering buttons -->
-<div class="button-area filters">
-  <label class="button">
-    <input type="checkbox" value="modulo1" />História de Vida
-  </label>
-  <label class="button">
-    <input type="checkbox" value="modulo2" />Líder empresarial
-  </label>
-  <label class="button">
-    <input type="checkbox" value="modulo3" />Gestor público
-  </label>
-  <label class="button">
-    <input type="checkbox" value="modulo4" />Personalidade pública
-  </label>
-  <label class="button">
-    <input type="checkbox" value="modulo5" />O homem e sua família
-  </label>
-</div>
-
-<!-- Masonry contents -->
-<div id="mnsry_container" class="fsi-lp__conteudo__bloco">
-
-<div class="item modulo1">
+<div class="wrap">
+    <div class="filter-control">
+      <div class="filter-list">
+        <button class="filter-btn" data-filter="filter1">Filter 1</button>
+        <button class="filter-btn" data-filter="filter2">Filter 2</button>
+        <button class="filter-btn" data-filter="filter3">Filter 3</button>
+        <button class="filter-btn" data-filter="filter4">Filter 4</button>
+      </div>
+      <button class="clear-all">Clear all</button>
+    </div>
+    <div class="filter-content">
+      <div class="grid">
+<div class="grid-item filter1">
             <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="acf2aeab-cbed-4b6d-8a4d-d65b27991a1a" src="/sites/default/files/inline-images/quadro_Vidal_Ramos_b.jpg" data-description="Quadro da família Ramos: o então governador Vidal José de Oliveira Ramos Júnior (1) e a esposa Tereza Fiuza Ramos (2), com seus filhos, filhas, genros, noras e netos(as), incluindo os futuros governadores Nereu Ramos (3), Celso Ramos (4) Adherbal Ramos da Silva (5). Em 1914, no Palácio do Governo de SC." data-large="/sites/default/files/inline-images/quadro_Vidal_Ramos_b.jpg">
             <p class="fsi-lp__conteudo__legenda">Quadro da família Ramos: o então governador Vidal José de Oliveira Ramos Júnior (1) e a esposa Tereza Fiuza Ramos (2), com seus filhos, filhas, genros, noras e netos(as), incluindo os futuros governadores Nereu Ramos (3), Celso Ramos (4) Adherbal Ramos da Silva (5). Em 1914, no Palácio do Governo de SC.</p>
 </div>
-<div class="item modulo1">
+<div class="grid-item filter1">
             <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="41f3777e-4186-4aa3-bf9d-dbad8eea10fb" src="/sites/default/files/inline-images/Filhos_na_fazenda.jpg" data-description="Os filhos de Celso Ramos na fazenda Pinheiro Seco, em Lages; da esquerda para a direita: Maria Helena, Wilma, Thereza, Newton, Celso Filho e Doris. Data não identificada." data-large="/sites/default/files/inline-images/Filhos_na_fazenda.jpg">
             <p class="fsi-lp__conteudo__legenda">Os filhos de Celso Ramos na fazenda Pinheiro Seco, em Lages; da esquerda para a direita: Maria Helena, Wilma, Thereza, Newton, Celso Filho e Doris. Data não identificada.</p>
 </div>
-<div class="item modulo1">
+<div class="grid-item filter1">
             <img class="vertical gallery__Image" alt="" data-entity-type="file" data-entity-uuid="b819fc8d-f339-4cc4-a39a-25e76f1eb6f9" src="/sites/default/files/inline-images/ACF.00205.jpg" data-description="Ato de assinatura de Celso Ramos na cerimônio de posse como presidente da FIESC em 25/05/1950, Florianópolis (SC)." data-large="/sites/default/files/inline-images/ACF.00205.jpg">
             <p class="fsi-lp__conteudo__legenda">Ato de assinatura de Celso Ramos na cerimônio de posse como presidente da FIESC em 25/05/1950, Florianópolis (SC).</p>
 </div>
-<div class="item modulo1">
+<div class="grid-item filter1">
             <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="b9cba1d9-5095-4880-a85e-f861eef0886b" src="/sites/default/files/inline-images/ACR.00257.jpg" data-description="Celso Ramos e seu irmão Nereu Ramos (1888-1958), um dia antes da morte de Nereu Ramos no acidente aéreo em São José dos Pinhas (PR), ocorrido em 16/06/1958. O registro foi feito no cine Ritz em Florianópolis (SC), após Convenção do PSB (Partido Social Democrático).Nereu Ramos foi presidente do Brasil entre 1955 e 1956." data-large="/sites/default/files/inline-images/ACR.00257.jpg">
             <p class="fsi-lp__conteudo__legenda">Celso Ramos e seu irmão Nereu Ramos (1888-1958), um dia antes da morte de Nereu Ramos no acidente aéreo em São José dos Pinhas (PR), ocorrido em 16/06/1958. O registro foi feito no cine Ritz em Florianópolis (SC), após Convenção do PSB (Partido Social Democrático).Nereu Ramos foi presidente do Brasil entre 1955 e 1956.</p>
 </div>
-<div class="item modulo1">
+<div class="grid-item filter1">
             <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="34fe101b-db5f-414c-8921-e907db416a98" src="/sites/default/files/inline-images/ACR.00432.jpg" data-description="Celso Ramos durante cerimônia de posse como governador de Santa Catarina no dia 31/01/1961 em ato na Assembleia Legislativa de Santa Catarina." data-large="/sites/default/files/inline-images/ACR.00432.jpg">
             <p class="fsi-lp__conteudo__legenda">Celso Ramos durante cerimônia de posse como governador de Santa Catarina no dia 31/01/1961 em ato na Assembleia Legislativa de Santa Catarina.</p>
 </div>
-<div class="item modulo1">
+<div class="grid-item filter1">
             <img class="vertical gallery__Image" alt="" data-entity-type="file" data-entity-uuid="3f5b0078-0a0d-4de1-b75e-2cabfaaeaae3" src="/sites/default/files/inline-images/ACR.00624.jpg" data-description="Edith Gama Ramos. Data e local não identificados." data-large="/sites/default/files/inline-images/ACR.00624.jpg">
             <p class="fsi-lp__conteudo__legenda">Edith Gama Ramos. Data e local não identificados.</p>
 </div>
-<div class="item modulo1">
+<div class="grid-item filter1">
             <img class="vertical gallery__Image" alt="" data-entity-type="file" data-entity-uuid="fac5f9aa-f449-423b-9646-156dc0953623" src="/sites/default/files/inline-images/CR_a_cavalo.jpg" data-description="Celso Ramos em sua fazenda Santa Thereza, no bairro de Canasvieiras, em Florianópolis. Data não identificada." data-large="/sites/default/files/inline-images/CR_a_cavalo.jpg">
             <p class="fsi-lp__conteudo__legenda">Celso Ramos em sua fazenda Santa Thereza, no bairro de Canasvieiras, em Florianópolis. Data não identificada.</p>
 </div>
-<div class="item modulo1">
+<div class="grid-item filter1">
             <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="7e81a863-ad50-4282-80ac-1a6348af15ab" src="/sites/default/files/inline-images/ACR.00277.jpg" data-description="Celso Ramos em sua casa no Centro de Florianópolis. Data não identificada." data-large="/sites/default/files/inline-images/ACR.00277.jpg">
             <p class="fsi-lp__conteudo__legenda">Celso Ramos em sua casa no Centro de Florianópolis. Data não identificada.</p>
 </div>
-<div class="item modulo1">
+<div class="grid-item filter1">
             <img class="vertical gallery__Image" alt="" data-entity-type="file" data-entity-uuid="07394862-6c68-4bf3-8370-29ab43207cee" src="/sites/default/files/inline-images/Quadro_martinho-de-Haro.jpg" data-description="Celso Ramos, em pintura de Martinho de Haro. Local e data não identificados." data-large="/sites/default/files/inline-images/Quadro_martinho-de-Haro.jpg">
             <p class="fsi-lp__conteudo__legenda">Celso Ramos, em pintura de Martinho de Haro. Local e data não identificados.</p>
 </div>
 
 
 
-  <div class="item modulo2">
+  <div class="grid-item filter2">
         <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="8fe335d5-b058-46e7-8ff7-25b68cac2951" src="/sites/default/files/inline-images/ACF.04710.jpg" data-description="Celso Ramos com a comitiva da Confederação Nacional das Indústrias (CNI), década de 1960. Local não identificado." data-large="/sites/default/files/inline-images/ACF.04710.jpg">
         <p class="fsi-lp__conteudo__legenda">Celso Ramos com a comitiva da Confederação Nacional das Indústrias (CNI), década de 1960. Local não identificado.</p>
   </div>
-<div class="item modulo2">
+<div class="grid-item filter2">
             <img class="vertical gallery__Image" alt="" data-entity-type="file" data-entity-uuid="b819fc8d-f339-4cc4-a39a-25e76f1eb6f9" src="/sites/default/files/inline-images/ACF.00205.jpg" data-description="Ato de assinatura de Celso Ramos na cerimônia de posse como presidente da FIESC em 25/05/1950, Florianópolis." data-large="/sites/default/files/inline-images/ACF.00205.jpg">
             <p class="fsi-lp__conteudo__legenda">Ato de assinatura de Celso Ramos na cerimônia de posse como presidente da FIESC em 25/05/1950, Florianópolis.</p>
 </div>
-<div class="item modulo2">
+<div class="grid-item filter2">
             <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="2d4dceab-b8bb-4db7-8122-ebb4cbeace73" src="/sites/default/files/inline-images/ACF.03474.jpg" data-description="Celso Ramos em reunião da Federação das Indústrias de Santa Catarina. Ao seu lado, Alcides Abreu (esq.) e Célio Goulart (dir.). Data e local não identificados." data-large="/sites/default/files/inline-images/ACF.03474.jpg">
             <p class="fsi-lp__conteudo__legenda">Celso Ramos em reunião da Federação das Indústrias de Santa Catarina. Ao seu lado, Alcides Abreu (esq.) e Célio Goulart (dir.). Data e local não identificados.</p>
 </div>
-<div class="item modulo2">
+<div class="grid-item filter2">
             <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="89778454-466f-46c6-912f-2ac707b78fa5" src="/sites/default/files/inline-images/ACR.00370.png" data-description="Celso Ramos em atividade na Confederação Nacional da Indústria (CNI). Data e local não identificados." data-large="/sites/default/files/inline-images/ACR.00370.png">
             <p class="fsi-lp__conteudo__legenda">Celso Ramos em atividade na Confederação Nacional da Indústria (CNI). Data e local não identificados.</p>
          </div>
 
-<div class="item modulo2">
+<div class="grid-item filter2">
             <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="8ea73804-d873-4001-bc39-61f5ce5d3880" src="/sites/default/files/inline-images/ACF.12013.jpg" data-description="Momento de descontração. Reportagem fotográfica da I.C. Local e data não identificados." data-large="/sites/default/files/inline-images/ACF.12013.jpg">
             <p class="fsi-lp__conteudo__legenda">Momento de descontração. Reportagem fotográfica da I.C. Local e data não identificados.</p>
 </div>
-<div class="item modulo2">
+<div class="grid-item filter2">
             <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="6dc9ff67-3930-4cfb-ac63-5e9993179886" src="/sites/default/files/inline-images/ACF.04414.jpg" data-description="Transmissão de cargo da presidência da FIESC para Guilherme Renaux. Florianópolis, década de 1960. Foto: Waldemar Anacleto" data-large="/sites/default/files/inline-images/ACF.04414.jpg">
             <p class="fsi-lp__conteudo__legenda">Transmissão de cargo da presidência da FIESC para Guilherme Renaux. Florianópolis, década de 1960. Foto: Waldemar Anacleto</p>
 </div>
-<div class="item modulo2">
+<div class="grid-item filter2">
             <img class="vertical gallery__Image" alt="" src="https://fiesc.com.br/sites/default/files/2023-05/ACR.00054.jpg" data-description="Discurso de Celso Ramos, então presidente da Federação das Indústrias de Santa Catarina (FIESC), durante cerimônia em Florianópolis, 1960." data-large="https://fiesc.com.br/sites/default/files/2023-05/ACR.00054.jpg">
             <p class="fsi-lp__conteudo__legenda">Discurso de Celso Ramos, então presidente da Federação das Indústrias de Santa Catarina (FIESC), durante cerimônia em Florianópolis, 1960.</p>
 </div>
-<div class="item modulo2">
+<div class="grid-item filter2">
             <img class="vertical gallery__Image" alt="" src="https://fiesc.com.br/sites/default/files/2023-05/ACR.00960.jpg" data-description="Folder sobre o Plano de Metas (Plameg) com apresentação da plataforma de governo, década de 1960." data-large="https://fiesc.com.br/sites/default/files/2023-05/ACR.00960.jpg">
             <p class="fsi-lp__conteudo__legenda">Folder sobre o Plano de Metas (Plameg) com apresentação da plataforma de governo, década de 1960.</p>
 </div>
-<div class="item modulo2">
+<div class="grid-item filter2">
             <img class="vertical gallery__Image" alt="" src="https://fiesc.com.br/sites/default/files/2023-05/ACR.00049.jpg" data-description="Administração para o desenvolvimento, estudo econômico-financeiro da política fazendária catarinense. 1963. Local não identificado" data-large="https://fiesc.com.br/sites/default/files/2023-05/ACR.00049.jpg">
             <p class="fsi-lp__conteudo__legenda">Administração para o desenvolvimento, estudo econômico-financeiro da política fazendária catarinense. 1963. Local não identificado</p>
 </div>
-<div class="item modulo2">
+<div class="grid-item filter2">
             <img class="vertical gallery__Image" alt="" src="https://fiesc.com.br/sites/default/files/2023-05/ACR.00101.jpg" data-description="Relatório intitulado Documento Básico, apresentado durante o Seminário Socioeconômico de Santa Catarina, Florianópolis, 1960." data-large="https://fiesc.com.br/sites/default/files/2023-05/ACR.00101.jpg">
             <p class="fsi-lp__conteudo__legenda">Relatório intitulado Documento Básico, apresentado durante o Seminário Socioeconômico de Santa Catarina, Florianópolis, 1960.</p>
 </div>
-
-</div>
-
+      </div>
+    </div>
+  </div>
 
 </div>
 
       
    </div>
-
-
 <script>
-    	
-// REMEMBER TO PUT THIS INSIDE 
-// $(document).ready(function() 
-// FILTER
-		// A little fixed Multiple Filter Masonry here
-		// https://github.com/digistate/resouces/blob/master/multipleFilterMasonry.js
-		var 
-			mContainer = $("#mnsry_container"),
-	    	filterButton = $(".button");
-	    	params = {
-      	        itemSelector: ".item",
-      	        filtersGroupSelector:".filters"
-	    	};
+    	$('.filter-list button').click(function() {
+       $(this).toggleClass('active');
 
-		$(window).load(function() { 
-	
-			// Do mansonry with filtering 
-			mContainer.multipleFilterMasonry(params);
-			
-			// Show articles with fadein
-			mContainer.find(".item").animate({
-				"opacity":1
-				}, 1200);
+       let filterArr = $(".filter-list button.active").map(function() {
+           return $(this).data('filter');
+       });
 
-			// Change the filtering button(label) status 
-			filterButton.find("input").change(function(){
-				$(this).parent().toggleClass("active");
-			});
-			
-		});
+       let filterItem = $(".grid-item");
+
+       if(filterArr.length <= 0) {
+           filterItem.show();
+       } else {
+           filterItem.hide();
+           filterItem.each(function () {
+               for(let i = 0; i < filterArr.length; i++) {
+                   if($(this).hasClass(filterArr[i])) {
+                       $(this).show();
+                   }
+               }
+           });
+       }
+    });
+    $('.clear-all').click(function() {
+        $('.filter-list button').removeClass('active');
+        $(".grid-item").show();
+    });
 </script>
 
 
