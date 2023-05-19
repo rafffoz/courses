@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filters</title>
+<style>
+.button-area .button {
+  display: inline-block;
+  padding: 10px;
+  margin: 30px 5px;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #f16022;
+}
+.button-area .button:hover {
+  background-color: #f16022;
+}
+.button-area .button.active {
+  background-color: #f16022;
+}
+.button-area input[type=checkbox] {
+  display: none;
+}
+#mnsry_container {
+  position: relative;
+}
+#mnsry_container:hover img {
+  opacity: 0.28;
+}
+#mnsry_container .item {
+  width: 33.3%;
+  min-height: 200px;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+}
+
+#mnsry_container .item img {
+  display: block;
+  width: 100%;
+  opacity: 0.25;
+  transition: all 0.8s;
+}
+
+#mnsry_container .item:hover img {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+@media (max-width: 860px) {
+  #mnsry_container .item {
+    width: 50%;
+    min-height: 150px;
+  }
+}
+@media (max-width: 667px) {
+  #mnsry_container .item {
+    width: 100%;
+    min-height: 220px;
+  }
+}
+
+:root {
+--lp-clr-primaria: #000732;
+--lp-clr-secundaria: #0d68cc;
+--lp-clr-tercearia: #0f0077;
+--lp-clr-background: #f2f2fc;
+--lp-clr-light: #ffffff;
+}
+* {padding: 0;box-sizing: border-box;}
+html {scroll-behavior: smooth; scroll-padding-top: 3rem;}
+body {font-family: 'Montserrat', sans-serif; line-height: 1.5; color: var(--lp-clr-primaria); background-color: var(--lp-clr-background);}
+.region--content-after__region--content-after__region .styleguide__structure__container {width: 100%;}
+
+h1 {margin: 0;color: var(--lp-clr-light);font-size: 3rem;line-height: 1.25;}
+h1 strong {display: block;}
+
+.fsi__nav--entidades {background-color: var(--lp-clr-primaria);}
+.page__page__footer {background-color: var(--lp-clr-primaria);}
+.new-footer__social-icon-fiesc i {color: var(--lp-clr-primaria);box-sizing: initial;}
+@media screen and (max-width: 500px) {.new-footer__social {width: 100%;}}
+
+.fsi-lp__titulo {color: var(--lp-clr-light); font-weight: 400;font-size: 2.4rem;margin-block: 0;line-height: 1.2;}
+.fsi-lp__titulo__modulo {margin-bottom: 2rem;font-size: 3.1rem;line-height: 1.1;font-weight: 400;}
+.fsi-lp__titulo strong {font-weight: bold; display: block;}
+.fsi-lp__titulo__sublinhado {border-bottom: 4px solid var(--lp-clr-primaria);}
+
+.fsi-lp__header {height: 80vh;position: relative;margin-bottom: 7rem;}
+.fsi-lp__header__modulos {background-image: url(https://fiesc.com.br/sites/default/files/2023-05/fundo-web.jpg); background-size: cover;background-position: center center;background-repeat: no-repeat; color: var(--lp-clr-light); display: flex;}
+.fsi-lp__header__modulos>div {display: flex;align-items: center;justify-content: space-between;}
+.fsi-lp__header__modulos p {font-size: 1.15rem;line-height: 1.7;}
+.fsi-lp__menu {align-self: flex-start;display: flex;gap: 2rem;margin-top: 2rem;letter-spacing: 1px;}
+.fsi-lp__menu a {color: #fff;text-transform: uppercase;font-weight: 500;position: relative;}
+.fsi-lp__menu a:hover {color: var(--lp-clr-secundaria);}
+.fsi-lp__menu a:after {background: none repeat scroll 0 0 transparent;content: "";display: block;height: 2.5px;left: 50%;position: absolute;background: var(--lp-clr-secundaria);transition: width 0.3s ease 0s, left 0.3s ease 0s;width: 0;}
+.fsi-lp__menu a:hover:after {width: 100%;left: 0;}
+.fsi-lp__header__box {background-color: var(--lp-clr-primaria);color: var(--lp-clr-light);z-index: 1;position: absolute;max-width: 500px;bottom: -50px;padding: 2rem 2.5rem;}
+.fsi-lp__link__arrow {color: var(--lp-clr-light); text-transform: uppercase; font-weight: 600;}
+.fsi-lp__link__arrow:hover {text-decoration: underline;text-underline-offset: 5px;}
+.fsi-lp__link__arrow i {margin-left: .5rem; transition: transform 0.3s ease-out;}
+.fsi-lp__link__arrow:hover i {transform: translateX(10px);}
+.fsi-lp__arrow {position: absolute;-webkit-transition: -webkit-transform 0.3s ease;transition: -webkit-transform 0.3s ease;transition: transform 0.3s ease;transition: transform 0.3s ease, -webkit-transform 0.3s ease;vertical-align: middle;z-index: 1;left: 50%;bottom: 25px;animation: setinhaAnim 1.5s;animation-timing-function: ease;animation-iteration-count: 1;animation-timing-function: ease-out;animation-iteration-count: infinite;}
+.fsi-lp__arrow__circle {-webkit-transition: stroke-dashoffset .3s ease;transition: stroke-dashoffset .3s ease;stroke-dasharray: 95;stroke-dashoffset: 95;}
+@keyframes setinhaAnim {
+		0% {transform: translate(0px, 0px) rotate(90deg);}
+		50% {transform: translate(0px, 15px) rotate(90deg);}
+		100% {transform: translate(0px, 0px) rotate(90deg);}
+}
+.fsi-lp__arrow:hover .fsi-lp__arrow__circle {stroke-dashoffset: 0;}
+
+.fsi-lp__bg__video {position: absolute;top: 0;left: 0;height: 100%;width: 100%;}
+.fsi-lp__bg__video video {height: 100%;width: 100%;object-fit: cover;}
+
+.fsi-lp__sessoes {margin-block: 5rem;}
+.fsi-lp__sessoes__itens {margin-block: 4rem;}
+.fsi-lp__sessoes__itens__flex {display: flex;align-items: center;}
+.fsi-lp__sessoes__itens__content {background-color: var(--lp-clr-primaria); color: var(--lp-clr-light);display: flex;flex-direction: column;justify-content: center;padding: 6rem 3rem;max-width: 50%;}
+
+.slick-list {max-width: 800px;margin: 0 auto;}
+.slick-slide img {display: block;width: 100%;height: 90%;}
+.slick-prev {left: 20px;}
+.slick-next {right: 20px;}
+.slick-prev:before,.slick-next:before {color: var(--lp-clr-secundaria);font-size: 40px;/*opacity: .2;mix-blend-mode: multiply;*/}
+.slick-prev, .slick-next {width: 40px;height: 40px;}
+/*.slick-prev:focus, .slick-next:focus {color: transparent;outline: none;background: transparent;}*/
+
+.fsi-lp__exposicao {display: grid;grid-template-columns: 1fr 1fr;grid-template-rows: 1fr;}
+.fsi-lp__exposicao>div:nth-child(1) {background-color: var(--lp-clr-primaria); color: var(--lp-clr-light);width: 100%;display: flex;flex-direction: column;justify-content: space-evenly;padding: 5rem 7rem;}
+.fsi-lp__exposicao>div:nth-child(1) div {display: flex;align-items: center;gap: 1.5rem;margin-bottom: 1rem;}
+.fsi-lp__exposicao>div:nth-child(1) div img {width: 45px;}
+.fsi-lp__exposicao>img {object-fit: cover;width: 100%;height: 100%;grid-column: 2 / 3;}
+
+.fsi-lp__acervo {margin-block: 5rem;}
+.fsi-lp__conteudo {margin-bottom: 6rem;}
+.fsi-lp__conteudo__bloco {grid-gap: 4rem;display: grid;grid-template-columns: repeat(auto-fit,minmax(30ch,1fr));margin-bottom: 3rem;}
+/*
+.fsi-lp__conteudo__bloco {display: flex; align-items: flex-start;margin-bottom: 3rem;gap: 3rem;}
+*/
+.fsi-lp__conteudo__bloco>div {width: 100%;}
+.fsi-lp__conteudo__txt {font-size: 1.2rem;line-height: 1.7; font-weight: 400;}
+.fsi-lp__conteudo__txt p {margin-bottom: 2.5rem;}
+.fsi-lp__conteudo__txt p:nth-child(1) {margin-top: 0;}
+.fsi-lp__conteudo__bloco .fsi-lp__conteudo__legenda {font-size: .9rem;line-height: 1.5; margin-bottom: 2.5rem;}
+.fsi-lp__conteudo__bloco ul {padding-left: 1rem;}
+.fsi-lp__conteudo__bloco li {margin-bottom: .5rem;font-size: 1.1rem;}
+.fsi-lp__conteudo__bloco li::marker {color: var(--lp-clr-secundaria);}
+.fsi-lp__conteudo__bloco li a {text-decoration: underline;text-underline-offset: 5px; color: var(--lp-clr-secundaria);}
+.fsi-lp__conteudo__bloco li a:hover {color: var(--lp-clr-primaria);text-decoration: none;}
+.fsi-lp__conteudo img.vertical {max-width: 400px;}
+/*
+.fsi-lp__conteudo img.horizontal {max-width: 450px;}
+*/
+
+.fsi-lp__indice {background-image: linear-gradient(215deg, #095ec9 0%, #001d58 74%); color: var(--lp-clr-light);}
+.fsi-lp__indice .fsi-lp__titulo {font-size: 1.8rem;}
+.fsi-lp__indice__grid {display: grid;grid-template-columns: repeat(3,minmax(0,1fr));}
+.fsi-lp__indice__grid>div {border: 2px solid var(--lp-clr-secundaria);padding: 2rem;display: flex;flex-direction: column;}
+.fsi-lp__indice__grid p {margin-block: 2rem;margin-block: 2rem;flex: 1;}
+
+.asyncGallery {position: fixed;top: 0;left: 0;right: 0;bottom: 0;opacity: 0;z-index: 1000;visibility: hidden;background-color: rgba(0, 0, 0, 0.95);transition: opacity 200ms, visibility 200ms;}
+.asyncGallery.is-visible {opacity: 1;visibility: visible;}
+.asyncGallery__Item {position: absolute;top: 50%;left: 50%;opacity: 0;visibility: hidden;overflow: hidden;transform: translate(-50%, -50%);transition: opacity 200ms, visibility 200ms;}
+.asyncGallery__Item.is-visible {opacity: 1;visibility: visible;}
+.asyncGallery__ItemImage img {max-height: 80vh;display: block;}
+.asyncGallery__ItemDescription,.asyncGallery__Loader {color: #fff;}
+.asyncGallery__Loader {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);display: none;color: #fff;z-index: 100;}
+.asyncGallery__Loader.is-visible {display: block;}
+.asyncGallery button {background-color: transparent;border: 0;outline: 0;padding: 0;font-size: 0;cursor: pointer;}
+.asyncGallery__Close {position: absolute;top: 40px;right: 40px;width: 30px;height: 30px;z-index: 1000;background-repeat: no-repeat;background-size: 30px 30px;background-image: url("data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTEycHgiIHZlcnNpb249IjEuMSIgaGVpZ2h0PSI1MTJweCIgdmlld0JveD0iMCAwIDY0IDY0IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2NCA2NCI+CiAgPGc+CiAgICA8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjguOTQxLDMxLjc4NkwwLjYxMyw2MC4xMTRjLTAuNzg3LDAuNzg3LTAuNzg3LDIuMDYyLDAsMi44NDljMC4zOTMsMC4zOTQsMC45MDksMC41OSwxLjQyNCwwLjU5ICAgYzAuNTE2LDAsMS4wMzEtMC4xOTYsMS40MjQtMC41OWwyOC41NDEtMjguNTQxbDI4LjU0MSwyOC41NDFjMC4zOTQsMC4zOTQsMC45MDksMC41OSwxLjQyNCwwLjU5YzAuNTE1LDAsMS4wMzEtMC4xOTYsMS40MjQtMC41OSAgIGMwLjc4Ny0wLjc4NywwLjc4Ny0yLjA2MiwwLTIuODQ5TDM1LjA2NCwzMS43ODZMNjMuNDEsMy40MzhjMC43ODctMC43ODcsMC43ODctMi4wNjIsMC0yLjg0OWMtMC43ODctMC43ODYtMi4wNjItMC43ODYtMi44NDgsMCAgIEwzMi4wMDMsMjkuMTVMMy40NDEsMC41OWMtMC43ODctMC43ODYtMi4wNjEtMC43ODYtMi44NDgsMGMtMC43ODcsMC43ODctMC43ODcsMi4wNjIsMCwyLjg0OUwyOC45NDEsMzEuNzg2eiIvPgogIDwvZz4KPC9zdmc+Cg==");}
+.asyncGallery__Counter {position: absolute;font-size: 20px;font-weight: bold;color: #fff;right: 40px;bottom: 40px;}
+.asyncGallery__Dots {position: absolute;left: 50%;bottom: 40px;display: flex;margin: 0;padding: 0;transform: translateX(-50%);list-style-type: none;z-index: 1000;}
+.asyncGallery__Dots button {padding: 0;width: 10px;height: 10px;background-color: #fff;border: 0;outline: 0;border-radius: 50%;}
+.asyncGallery__Dots li {opacity: 0.2;transition: opacity 200ms;}
+.asyncGallery__Dots li + li {margin-left: 10px;}
+.asyncGallery__Dots li.is-active {opacity: 1;}
+.asyncGallery__Next,.asyncGallery__Prev {position: absolute;top: 50%;width: 30px;height: 30px;z-index: 1000;transition: transform 200ms, opacity 200ms;transform: translateY(-50%);}
+.asyncGallery__Next:disabled,.asyncGallery__Prev:disabled {opacity: 0.2;cursor: default;}
+.asyncGallery__Next:before,.asyncGallery__Prev:before {position: absolute;content: "";top: 50%;left: 50%;background-image: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 129 129' xmlns:xlink='http://www.w3.org/1999/xlink' enable-background='new 0 0 129 129'%3E%3Cg%3E%3Cpath d='m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9,53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z' fill='%23fff'/%3E%3C/g%3E%3C/svg%3E%0A");width: 30px;height: 30px;background-repeat: no-repeat;background-size: 30px 30px;}
+.asyncGallery__Next {right: 40px;}
+.asyncGallery__Next:hover {transform: translateX(2px) translateY(-50%);}
+.asyncGallery__Next:before {transform: translate3d(-50%, -50%, 0);}
+.asyncGallery__Prev {left: 40px;}
+.asyncGallery__Prev:hover {transform: translateX(-2px) translateY(-50%);}
+.asyncGallery__Prev:before {transform: translate3d(-50%, -50%, 0) scale(-1);}
+@media screen and (max-width: 768px) {
+.asyncGallery__Close {top: 15px;right: 15px;width: 20px;height: 20px;background-size: 20px;}
+.asyncGallery__Dots {bottom: 15px;}
+.asyncGallery__Counter {right: 15px;bottom: 15px;font-size: 12px;}
+.asyncGallery__Item {width: 100%;}
+.asyncGallery__ItemImage img {max-height: none;max-width: 100%;}
+.asyncGallery__ItemDescription {padding: 0 20px;}
+.asyncGallery__Next,.asyncGallery__Prev {display: none;}
+}
+
+</style>
+</head>
+<body>
+<h1>filters</h1>
+
+<div class="fsi-lp__header fsi-lp__header__modulos">
+   <div class="fsi__container">
+      <div style="max-width: 500px;">
+         <h1 class="fsi-lp__titulo__modulo"><strong>Acervo</strong>completo</h1>
+         <p>Acesse fotografias, manuscritos, correspondências e objetos do <strong>acervo cedido pela família Ramos.</strong></p>
+      </div>
+      <div class="fsi-lp__menu">
+         <a href="/demo">Início</a>
+         <a href="#modulos">Módulos</a>
+      </div>
+   </div>
+   <a href="#content">
+      <svg class="fsi-lp__arrow" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 32 32"><g fill="none" stroke="#FFF" stroke-width="1.5" stroke-linejoin="round" stroke-miterlimit="10">
+         <circle class="fsi-lp__arrow__circle" cx="16" cy="16" r="15.12"></circle><path class="fsi-lp__arrow__path" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path></g>
+      </svg>
+   </a>
+</div>
+
+<div class="fsi-lp__conteudo">
+   <div class="fsi__container__p" id="content">
+
+<!-- Filtering buttons -->
+<div class="button-area filters">
+  <label class="button">
+    <input type="checkbox" value="modulo1" />História de Vida
+  </label>
+  <label class="button">
+    <input type="checkbox" value="modulo2" />Líder empresarial
+  </label>
+  <label class="button">
+    <input type="checkbox" value="modulo3" />Gestor público
+  </label>
+  <label class="button">
+    <input type="checkbox" value="modulo4" />Personalidade pública
+  </label>
+  <label class="button">
+    <input type="checkbox" value="modulo5" />O homem e sua família
+  </label>
+</div>
+
+<!-- Masonry contents -->
+<div id="mnsry_container" class="fsi-lp__conteudo__bloco">
+
+<div class="item modulo1">
+            <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="acf2aeab-cbed-4b6d-8a4d-d65b27991a1a" src="/sites/default/files/inline-images/quadro_Vidal_Ramos_b.jpg" data-description="Quadro da família Ramos: o então governador Vidal José de Oliveira Ramos Júnior (1) e a esposa Tereza Fiuza Ramos (2), com seus filhos, filhas, genros, noras e netos(as), incluindo os futuros governadores Nereu Ramos (3), Celso Ramos (4) Adherbal Ramos da Silva (5). Em 1914, no Palácio do Governo de SC." data-large="/sites/default/files/inline-images/quadro_Vidal_Ramos_b.jpg">
+            <p class="fsi-lp__conteudo__legenda">Quadro da família Ramos: o então governador Vidal José de Oliveira Ramos Júnior (1) e a esposa Tereza Fiuza Ramos (2), com seus filhos, filhas, genros, noras e netos(as), incluindo os futuros governadores Nereu Ramos (3), Celso Ramos (4) Adherbal Ramos da Silva (5). Em 1914, no Palácio do Governo de SC.</p>
+</div>
+<div class="item modulo1">
+            <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="41f3777e-4186-4aa3-bf9d-dbad8eea10fb" src="/sites/default/files/inline-images/Filhos_na_fazenda.jpg" data-description="Os filhos de Celso Ramos na fazenda Pinheiro Seco, em Lages; da esquerda para a direita: Maria Helena, Wilma, Thereza, Newton, Celso Filho e Doris. Data não identificada." data-large="/sites/default/files/inline-images/Filhos_na_fazenda.jpg">
+            <p class="fsi-lp__conteudo__legenda">Os filhos de Celso Ramos na fazenda Pinheiro Seco, em Lages; da esquerda para a direita: Maria Helena, Wilma, Thereza, Newton, Celso Filho e Doris. Data não identificada.</p>
+</div>
+<div class="item modulo1">
+            <img class="vertical gallery__Image" alt="" data-entity-type="file" data-entity-uuid="b819fc8d-f339-4cc4-a39a-25e76f1eb6f9" src="/sites/default/files/inline-images/ACF.00205.jpg" data-description="Ato de assinatura de Celso Ramos na cerimônio de posse como presidente da FIESC em 25/05/1950, Florianópolis (SC)." data-large="/sites/default/files/inline-images/ACF.00205.jpg">
+            <p class="fsi-lp__conteudo__legenda">Ato de assinatura de Celso Ramos na cerimônio de posse como presidente da FIESC em 25/05/1950, Florianópolis (SC).</p>
+</div>
+<div class="item modulo1">
+            <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="b9cba1d9-5095-4880-a85e-f861eef0886b" src="/sites/default/files/inline-images/ACR.00257.jpg" data-description="Celso Ramos e seu irmão Nereu Ramos (1888-1958), um dia antes da morte de Nereu Ramos no acidente aéreo em São José dos Pinhas (PR), ocorrido em 16/06/1958. O registro foi feito no cine Ritz em Florianópolis (SC), após Convenção do PSB (Partido Social Democrático).Nereu Ramos foi presidente do Brasil entre 1955 e 1956." data-large="/sites/default/files/inline-images/ACR.00257.jpg">
+            <p class="fsi-lp__conteudo__legenda">Celso Ramos e seu irmão Nereu Ramos (1888-1958), um dia antes da morte de Nereu Ramos no acidente aéreo em São José dos Pinhas (PR), ocorrido em 16/06/1958. O registro foi feito no cine Ritz em Florianópolis (SC), após Convenção do PSB (Partido Social Democrático).Nereu Ramos foi presidente do Brasil entre 1955 e 1956.</p>
+</div>
+<div class="item modulo1">
+            <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="34fe101b-db5f-414c-8921-e907db416a98" src="/sites/default/files/inline-images/ACR.00432.jpg" data-description="Celso Ramos durante cerimônia de posse como governador de Santa Catarina no dia 31/01/1961 em ato na Assembleia Legislativa de Santa Catarina." data-large="/sites/default/files/inline-images/ACR.00432.jpg">
+            <p class="fsi-lp__conteudo__legenda">Celso Ramos durante cerimônia de posse como governador de Santa Catarina no dia 31/01/1961 em ato na Assembleia Legislativa de Santa Catarina.</p>
+</div>
+<div class="item modulo1">
+            <img class="vertical gallery__Image" alt="" data-entity-type="file" data-entity-uuid="3f5b0078-0a0d-4de1-b75e-2cabfaaeaae3" src="/sites/default/files/inline-images/ACR.00624.jpg" data-description="Edith Gama Ramos. Data e local não identificados." data-large="/sites/default/files/inline-images/ACR.00624.jpg">
+            <p class="fsi-lp__conteudo__legenda">Edith Gama Ramos. Data e local não identificados.</p>
+</div>
+<div class="item modulo1">
+            <img class="vertical gallery__Image" alt="" data-entity-type="file" data-entity-uuid="fac5f9aa-f449-423b-9646-156dc0953623" src="/sites/default/files/inline-images/CR_a_cavalo.jpg" data-description="Celso Ramos em sua fazenda Santa Thereza, no bairro de Canasvieiras, em Florianópolis. Data não identificada." data-large="/sites/default/files/inline-images/CR_a_cavalo.jpg">
+            <p class="fsi-lp__conteudo__legenda">Celso Ramos em sua fazenda Santa Thereza, no bairro de Canasvieiras, em Florianópolis. Data não identificada.</p>
+</div>
+<div class="item modulo1">
+            <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="7e81a863-ad50-4282-80ac-1a6348af15ab" src="/sites/default/files/inline-images/ACR.00277.jpg" data-description="Celso Ramos em sua casa no Centro de Florianópolis. Data não identificada." data-large="/sites/default/files/inline-images/ACR.00277.jpg">
+            <p class="fsi-lp__conteudo__legenda">Celso Ramos em sua casa no Centro de Florianópolis. Data não identificada.</p>
+</div>
+<div class="item modulo1">
+            <img class="vertical gallery__Image" alt="" data-entity-type="file" data-entity-uuid="07394862-6c68-4bf3-8370-29ab43207cee" src="/sites/default/files/inline-images/Quadro_martinho-de-Haro.jpg" data-description="Celso Ramos, em pintura de Martinho de Haro. Local e data não identificados." data-large="/sites/default/files/inline-images/Quadro_martinho-de-Haro.jpg">
+            <p class="fsi-lp__conteudo__legenda">Celso Ramos, em pintura de Martinho de Haro. Local e data não identificados.</p>
+</div>
+
+
+
+  <div class="item modulo2">
+        <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="8fe335d5-b058-46e7-8ff7-25b68cac2951" src="/sites/default/files/inline-images/ACF.04710.jpg" data-description="Celso Ramos com a comitiva da Confederação Nacional das Indústrias (CNI), década de 1960. Local não identificado." data-large="/sites/default/files/inline-images/ACF.04710.jpg">
+        <p class="fsi-lp__conteudo__legenda">Celso Ramos com a comitiva da Confederação Nacional das Indústrias (CNI), década de 1960. Local não identificado.</p>
+  </div>
+<div class="item modulo2">
+            <img class="vertical gallery__Image" alt="" data-entity-type="file" data-entity-uuid="b819fc8d-f339-4cc4-a39a-25e76f1eb6f9" src="/sites/default/files/inline-images/ACF.00205.jpg" data-description="Ato de assinatura de Celso Ramos na cerimônia de posse como presidente da FIESC em 25/05/1950, Florianópolis." data-large="/sites/default/files/inline-images/ACF.00205.jpg">
+            <p class="fsi-lp__conteudo__legenda">Ato de assinatura de Celso Ramos na cerimônia de posse como presidente da FIESC em 25/05/1950, Florianópolis.</p>
+</div>
+<div class="item modulo2">
+            <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="2d4dceab-b8bb-4db7-8122-ebb4cbeace73" src="/sites/default/files/inline-images/ACF.03474.jpg" data-description="Celso Ramos em reunião da Federação das Indústrias de Santa Catarina. Ao seu lado, Alcides Abreu (esq.) e Célio Goulart (dir.). Data e local não identificados." data-large="/sites/default/files/inline-images/ACF.03474.jpg">
+            <p class="fsi-lp__conteudo__legenda">Celso Ramos em reunião da Federação das Indústrias de Santa Catarina. Ao seu lado, Alcides Abreu (esq.) e Célio Goulart (dir.). Data e local não identificados.</p>
+</div>
+<div class="item modulo2">
+            <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="89778454-466f-46c6-912f-2ac707b78fa5" src="/sites/default/files/inline-images/ACR.00370.png" data-description="Celso Ramos em atividade na Confederação Nacional da Indústria (CNI). Data e local não identificados." data-large="/sites/default/files/inline-images/ACR.00370.png">
+            <p class="fsi-lp__conteudo__legenda">Celso Ramos em atividade na Confederação Nacional da Indústria (CNI). Data e local não identificados.</p>
+         </div>
+
+<div class="item modulo2">
+            <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="8ea73804-d873-4001-bc39-61f5ce5d3880" src="/sites/default/files/inline-images/ACF.12013.jpg" data-description="Momento de descontração. Reportagem fotográfica da I.C. Local e data não identificados." data-large="/sites/default/files/inline-images/ACF.12013.jpg">
+            <p class="fsi-lp__conteudo__legenda">Momento de descontração. Reportagem fotográfica da I.C. Local e data não identificados.</p>
+</div>
+<div class="item modulo2">
+            <img class="horizontal gallery__Image" alt="" data-entity-type="file" data-entity-uuid="6dc9ff67-3930-4cfb-ac63-5e9993179886" src="/sites/default/files/inline-images/ACF.04414.jpg" data-description="Transmissão de cargo da presidência da FIESC para Guilherme Renaux. Florianópolis, década de 1960. Foto: Waldemar Anacleto" data-large="/sites/default/files/inline-images/ACF.04414.jpg">
+            <p class="fsi-lp__conteudo__legenda">Transmissão de cargo da presidência da FIESC para Guilherme Renaux. Florianópolis, década de 1960. Foto: Waldemar Anacleto</p>
+</div>
+<div class="item modulo2">
+            <img class="vertical gallery__Image" alt="" src="https://fiesc.com.br/sites/default/files/2023-05/ACR.00054.jpg" data-description="Discurso de Celso Ramos, então presidente da Federação das Indústrias de Santa Catarina (FIESC), durante cerimônia em Florianópolis, 1960." data-large="https://fiesc.com.br/sites/default/files/2023-05/ACR.00054.jpg">
+            <p class="fsi-lp__conteudo__legenda">Discurso de Celso Ramos, então presidente da Federação das Indústrias de Santa Catarina (FIESC), durante cerimônia em Florianópolis, 1960.</p>
+</div>
+<div class="item modulo2">
+            <img class="vertical gallery__Image" alt="" src="https://fiesc.com.br/sites/default/files/2023-05/ACR.00960.jpg" data-description="Folder sobre o Plano de Metas (Plameg) com apresentação da plataforma de governo, década de 1960." data-large="https://fiesc.com.br/sites/default/files/2023-05/ACR.00960.jpg">
+            <p class="fsi-lp__conteudo__legenda">Folder sobre o Plano de Metas (Plameg) com apresentação da plataforma de governo, década de 1960.</p>
+</div>
+<div class="item modulo2">
+            <img class="vertical gallery__Image" alt="" src="https://fiesc.com.br/sites/default/files/2023-05/ACR.00049.jpg" data-description="Administração para o desenvolvimento, estudo econômico-financeiro da política fazendária catarinense. 1963. Local não identificado" data-large="https://fiesc.com.br/sites/default/files/2023-05/ACR.00049.jpg">
+            <p class="fsi-lp__conteudo__legenda">Administração para o desenvolvimento, estudo econômico-financeiro da política fazendária catarinense. 1963. Local não identificado</p>
+</div>
+<div class="item modulo2">
+            <img class="vertical gallery__Image" alt="" src="https://fiesc.com.br/sites/default/files/2023-05/ACR.00101.jpg" data-description="Relatório intitulado Documento Básico, apresentado durante o Seminário Socioeconômico de Santa Catarina, Florianópolis, 1960." data-large="https://fiesc.com.br/sites/default/files/2023-05/ACR.00101.jpg">
+            <p class="fsi-lp__conteudo__legenda">Relatório intitulado Documento Básico, apresentado durante o Seminário Socioeconômico de Santa Catarina, Florianópolis, 1960.</p>
+</div>
+
+</div>
+
+
+</div>
+
+      
+   </div>
+
+
+<script>
+    	
+// REMEMBER TO PUT THIS INSIDE 
+// $(document).ready(function() 
+// FILTER
+		// A little fixed Multiple Filter Masonry here
+		// https://github.com/digistate/resouces/blob/master/multipleFilterMasonry.js
+		var 
+			mContainer = $("#mnsry_container"),
+	    	filterButton = $(".button");
+	    	params = {
+      	        itemSelector: ".item",
+      	        filtersGroupSelector:".filters"
+	    	};
+
+		$(window).load(function() { 
+	
+			// Do mansonry with filtering 
+			mContainer.multipleFilterMasonry(params);
+			
+			// Show articles with fadein
+			mContainer.find(".item").animate({
+				"opacity":1
+				}, 1200);
+
+			// Change the filtering button(label) status 
+			filterButton.find("input").change(function(){
+				$(this).parent().toggleClass("active");
+			});
+			
+		});
+</script>
+
+
+</body>
+</html>
