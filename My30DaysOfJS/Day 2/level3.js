@@ -36,7 +36,8 @@ let monthSalary = Number(numbersText[0]) * 12
 let annualBonus = Number(numbersText[1])
 let onlineCouses = Number(numbersText[2])
 // it could also be done above with
-// let numbersText = textIncome.match(/\d+/g).map(Number) // finds the numbers and turns into data type Number
+// let numbersText = textIncome.match(/\d+/g).map(Number)
+// finds the numbers and turns into data type Number
 
 let annualIncome = monthSalary + annualBonus + (onlineCouses * 12)
 console.log(annualIncome) // 250000
