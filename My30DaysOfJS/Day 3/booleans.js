@@ -110,3 +110,16 @@ console.log(countC) // -1
 let countD = 0
 console.log(--countD) // -1
 console.log(countD) // -1
+
+// Ternary (conditional) operator
+let height = 150
+const canGo = height >= 170 ? "can ride" : "can't ride"
+console.log(canGo) // can't ride
+
+// still need to learn but cool!
+const greeting = (person) => {
+    const name = person ? person.name : "stranger";
+    return `Howdy, ${name}`;
+}
+console.log(greeting({ name: "Alice"})) // Howdy Alice
+console.log(greeting(null)) // Howdy Stranger
