@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anchor positioning</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <h1>Anchor positioning testing</h1>
+
+    <section class="anchor-section">
+        <h2>Basics</h2>
+        <div class="anchor-reference">anchor</div>
+        <div class="anchor-tooltip anchor-tooltip--end">position-area end</div>
+        <div class="anchor-tooltip anchor-tooltip--start">position-area start</div>
+    </section>
+
+    <section class="buttons-section">
+        <h2>popover</h2>
+        <div>
+            <button popovertarget="popOne">Popover APPEAR 1!</button>
+            <p popover id="popOne">Popover 1</p>
+
+            <button popovertarget="popTwo">Popover APPEAR 2!</button>
+            <button popovertarget="popTwo">Popover APPEAR 3!</button>
+            <p popover id="popTwo">Popover 2 and 3</p>
+
+        </div>
+    </section>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

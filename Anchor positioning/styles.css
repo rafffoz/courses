@@ -1,0 +1,44 @@
+.anchor-section {
+    display: grid;
+    place-items: center;
+    margin-block: 12rem;
+}
+
+.anchor-section div {
+    padding: 2rem;
+}
+
+.anchor-reference {
+    anchor-name: --anchor;
+    background-color: red;
+}
+
+.anchor-tooltip {
+    position: absolute;
+    position-anchor: --anchor;
+}
+
+.anchor-tooltip--end {
+background-color: greenyellow;
+position-area: end;
+}
+
+.anchor-tooltip--start {
+    background-color: rebeccapurple;
+position-area: start;
+}
+
+.buttons-section {
+    text-align: center;margin-bottom: 6rem;
+}
+
+.buttons-section div {
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+}
+
+.buttons-section div p {
+    margin: 0;
+    position-area: end;
+}
